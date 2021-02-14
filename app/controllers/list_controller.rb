@@ -9,7 +9,7 @@ class ListController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to :root
+      redirect_to controller: :top, action: :show
     else
       render action: :new
     end
@@ -23,7 +23,7 @@ class ListController < ApplicationController
     # @list = List.find_by(id: params[:id])
     if @list.update_attributes(list_params)
       # 成功時に更新と保存を行うメソッド
-      redirect_to :root
+      redirect_to new_list_card_path(list)
     else
       render action: :edit
     end
@@ -31,7 +31,7 @@ class ListController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to :root
+    redirect_to controller: :top, action: :show
   end
 
   private

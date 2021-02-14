@@ -9,8 +9,8 @@ body {
 
 // header
 .header {
-  background: #026aa7;
-  padding: 10px;
+  background: #02a71e;
+  padding: 20px;
   .nav {
     .header_menu {
       display: flex;
@@ -50,6 +50,14 @@ body {
         }
       }
     }
+  }
+}
+
+.footer {
+  background: #02a71e;
+  padding: 10px;
+  small {
+  color: #fff;
   }
 }
 
@@ -138,3 +146,21 @@ body {
     }
   }
 }
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+

@@ -1,5 +1,5 @@
 import 'bootstrap';
-import '../stylesheets/application';
+import '../stylesheets/application.scss';
 import '@fortawesome/fontawesome-free/js/all';
 
 // This file is automatically compiled by Webpack, along with any other files
