@@ -13,39 +13,29 @@ html, body {
   min-height: 100%;
 }
 
-.notice,
-.alert {
-  display: none;
-}
-
 // header
 .header {
   width: 100%;
-  background: #02a71e;
+  background: rgb(118, 238, 220);
   padding: 20px;
-  .nav {
-    .header_menu {
-      display: flex;
-      width: 100%;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      justify-content: space-between;
-      align-items: center;
-      li {
-        list-style: none;
-        color: #fff;
-        a {
+  #title{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, .0975);
+    height: 77px;
+      &-nav {
+        & > li {
           color: #fff;
+          margin-left: 20px;
+          & > a {
+            color: #fff;
+          }
+          &:first-child {
+            margin-left: 0;
+          }
         }
-      }
-      &_title {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 25px;
-        font-weight: bold;
       }
       &_inner {
         display: flex;
@@ -63,11 +53,10 @@ html, body {
       }
     }
   }
-}
 
 .footer {
   width: 100%;
-  background: #02a71e;
+  background: rgb(118, 238, 220);
   bottom: 0;
   padding: 10px;
   position: absolute
@@ -184,8 +173,6 @@ $gray-medium-light: #eaeaea;
   float: left;
   margin-right: 10px;
   border-radius:50%;
-  width: 120px;
-  height: 120px;
 }
 
 .gravatar_edit {
