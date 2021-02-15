@@ -2,7 +2,8 @@
   <nav class="nav">
     <ul class="header_menu">
     <%= link_to top_show_path, class: "nav-link" do %>
-      <li class="nav-link"><%= current_user.name %>さん</li>
+      <li class="nav-link"><%= current_user.name %>さん&nbsp;&nbsp;<i class="fas fa-user"></i>
+      </li>
       <% end %>
       <li class="header_menu_title"><%= link_to "todolist", root_path, class: "nav-link" %><li>
       <li>

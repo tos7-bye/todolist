@@ -1,5 +1,16 @@
-body {
+* {
+  margin: 0px;
+  padding: 0px;
+} 
+
+html, body {
+  height: 100%;
   overflow: visible;
+}
+#wrapper {
+  width: 100%;
+  position:relative;
+  min-height: 100%;
 }
 
 .notice,
@@ -9,6 +20,7 @@ body {
 
 // header
 .header {
+  width: 100%;
   background: #02a71e;
   padding: 20px;
   .nav {
@@ -54,12 +66,16 @@ body {
 }
 
 .footer {
+  width: 100%;
   background: #02a71e;
+  bottom: 0;
   padding: 10px;
-  small {
-  color: #fff;
-  }
+  position: absolute
 }
+  small {
+  color: black;
+  }
+
 
 // button
 .submitBtn {

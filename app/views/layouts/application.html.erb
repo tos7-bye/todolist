@@ -18,6 +18,7 @@
   </head>
 
   <body>
+  <div id="wrapper">
    <%= render 'partial/header' if current_user %>
 
     <% if flash[:notice] %>
@@ -32,7 +33,7 @@
     <% end %>
     <%= yield %>
     <%= render 'partial/footer' %>
+    </div>
     <%= debug(params) if Rails.env.development? %>
-
   </body>
 </html>
