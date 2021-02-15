@@ -1,6 +1,12 @@
 class ListController < ApplicationController
-
+  # サインインしていない状態でリストを作成できない
+  before_action :authenticate_user!
   before_action :set_list, only: %i(edit update destroy)
+
+  def index
+    # N + 1対策
+    @lists = List.limit(10).includes(:cards, :user).order('created_at DESC')
+  end
 
   def new
     @list = List.new
@@ -9,7 +15,8 @@ class ListController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to controller: :top, action: :show
+      redirect_to :root
+      flash[:notice] = "投稿が保存されました"
     else
       render action: :new
     end
@@ -38,7 +45,7 @@ class ListController < ApplicationController
   # privateメソッドは外部から呼び出せない
 
   def list_params
-    params.require(:list).permit(:title).merge(user: current_user)
+    params.require(:list).permit(:title).merge(user_id: current_user.id)
   end
 
   # beforeで取得

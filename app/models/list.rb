@@ -7,4 +7,6 @@ class List < ApplicationRecord
   validates :user_id, presence: true
   validates :title, length: { in: 1..255 }
 
+  accepts_nested_attributes_for :cards
+
 end

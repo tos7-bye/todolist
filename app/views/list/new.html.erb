@@ -1,11 +1,20 @@
-<div class="listnewPage">
-  <div class="container">
+<div class="d-flex flex-column align-items-center mt-3">
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+  <div class="card">
+    <div class="card-header">
+      リスト作成画面
+    </div>
+    <% if @list.errors.any? %>
+      <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
+    <% end %>
+    <div class="card-body">
     <%= form_with model: @list, url: { action: :create }, class: "new_list", local: true do |f| %>
-      <% if @list.errors.any? %>
-        <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
-      <% end %>
-      <%= f.label :title %>
+      <div class="list-image">
+        <%= gravatar_for(current_user) %>
+      </div>
+      <div class="col pl-0">
       <%= f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
+      </div>
       <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
     <% end %>
   </div>

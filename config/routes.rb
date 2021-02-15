@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   
   get 'static_page/home'
   get 'static_page/help'
-  root 'top#index'
-
+  root 'list#index'
   get 'top/show'
 
-  resources :list, only: %i(new create edit update destroy) do
+  resources :list, only: %i(new create index edit update destroy) do
     resources :card, except: %i(index)
   end
 end
