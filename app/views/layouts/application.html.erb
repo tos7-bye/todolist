@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# スマホでスクリーンの拡大、縮小の設定 %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%# kaminari %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -31,8 +33,10 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
-    <%= yield %>
-    <%= render 'partial/footer' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%# <%= render 'partial/footer' %>
     </div>
     <%= debug(params) if Rails.env.development? %>
   </body>
