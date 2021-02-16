@@ -41,15 +41,6 @@ html, body {
         display: flex;
         padding: 0;
         align-items: center;
-        .listNew {
-          &:after {
-            font-family: "Font Awesome 5 Free";
-            content: "\f044";
-            display: inline-block;
-            margin-left: 10px;
-            font-size: 20px;
-          }
-        }
       }
     }
   }
@@ -173,6 +164,7 @@ $gray-medium-light: #eaeaea;
   float: left;
   margin-right: 10px;
   border-radius:50%;
+  margin-left: 10px;
 }
 
 .gravatar_edit {

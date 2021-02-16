@@ -22,12 +22,14 @@
           <% end %>
           </li>
           <li>
-            <%= link_to top_show_path, class: "nav-link" do %>
-            <%= current_user.name %>さん
+            <%= link_to list_path(current_user), class: "nav-link" do %>リスト一覧
+            <i class="fas fa-list"></i>
             <% end %>
           </li>
           <li>
-            <%= link_to "サインアウト", destroy_user_session_path, class: "nav-link", method: :delete %>
+            <%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>サインアウト
+            <i class="fas fa-sign-out-alt"></i>
+            <% end %>
           </li>
         </ul>
       </div>

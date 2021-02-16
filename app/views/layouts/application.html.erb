@@ -33,9 +33,7 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
-    <div class="container">
       <%= yield %>
-    </div>
     <%# <%= render 'partial/footer' %>
     </div>
     <%= debug(params) if Rails.env.development? %>

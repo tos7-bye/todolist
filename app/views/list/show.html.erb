@@ -1,5 +1,6 @@
 <div class="topPage">
   <div class="listWrapper">
+  <%= gravatar_for(@list.user) %>
     <% @lists.each do |list| %>
 
       <div class="list">
@@ -28,8 +29,11 @@
             <i class="far fa-plus-square"></i>
             <%= link_to "さらにカードを追加", new_list_card_path(list), class: "addCard_link" %>
           </div>
+          <div class="list-time"><%= time_ago_in_words(list.created_at).upcase %>前
+          </div>
         </div>
       </div>
     <% end %>
+    <%= paginate @lists %>
   </div>
 </div>

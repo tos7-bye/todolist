@@ -1,7 +1,7 @@
 class ListController < ApplicationController
   # サインインしていない状態でリストを作成できない
   before_action :authenticate_user!
-  before_action :set_list, only: %i(edit update destroy)
+  before_action :set_list, only: %i(edit show update destroy)
 
   def index
     # N + 1対策
@@ -21,6 +21,11 @@ class ListController < ApplicationController
       render action: :new
     end
   end
+
+  def show
+    @lists = current_user.lists.order('created_at desc').page(params[:page]).per(10)
+  end
+
 # paramsは最初に取得したレコードを返す
   def edit
     # @list = List.find_by(id: params[:id])
@@ -39,6 +44,15 @@ class ListController < ApplicationController
   def destroy
     @list.destroy
     redirect_to controller: :top, action: :show
+  end
+
+  def destroy
+    if @list.user == current_user
+      flash[:notice] = "投稿が削除されました" if @list.destroy
+    else
+      flash[:alert] = "投稿の削除に失敗しました"
+    end
+    redirect_to root_path
   end
 
   private

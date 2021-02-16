@@ -10,6 +10,11 @@
             title: list.user.name do %>
             <strong><%= list.user.name %></strong>
           <% end %>
+          <% if list.user_id == current_user.id %>
+            <%= link_to list_path(list), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+            <i class="far fa-trash-alt fa-2x"></i>
+            <% end %>
+          <% end %>
         </div>
 
         <div class="card-body">
@@ -20,10 +25,13 @@
             <%= link_to "", "#", class: "comment" %>
               <i class="far fa-comment fa-3x"></i>
           </div>
-          <div><strong>「いいね！」10件</strong></div>
+          <div><strong>「いいね！」10件</strong>
+          </div>
           <div>
+          <%= link_to(list_path(list)) do %>
             <span><strong><%= list.user.name %></strong></span>
             <span><%= list.title %></span>
+          <% end %>
             <%= link_to time_ago_in_words(list.created_at).upcase + "前", "#", class: "list-time no-text-decoration" %>
             <hr>
             <div class="row parts">
